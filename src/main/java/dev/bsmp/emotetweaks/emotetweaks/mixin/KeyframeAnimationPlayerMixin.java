@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -24,14 +23,12 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-import de.maxhenkel.voicechat.voice.client.SoundManager;
 import dev.bsmp.emotetweaks.emotetweaks.SoundFrame;
 import dev.bsmp.emotetweaks.voicefx.SoundPlugin;
 import dev.kosmx.playerAnim.api.layered.KeyframeAnimationPlayer;
 import dev.kosmx.playerAnim.core.data.KeyframeAnimation;
-import dev.kosmx.playerAnim.core.impl.AnimationProcessor;
 import io.github.kosmx.emotes.executor.EmoteInstance;
-import io.github.kosmx.emotes.executor.emotePlayer.IEmotePlayerEntity;
+
 
 @Mixin(value = KeyframeAnimationPlayer.class, remap = false)
 public class KeyframeAnimationPlayerMixin {
@@ -78,7 +75,7 @@ public class KeyframeAnimationPlayerMixin {
 
     private short[] loadAudioFile(Path path) throws UnsupportedAudioFileException, IOException {
         AudioInputStream input = AudioSystem.getAudioInputStream(path.toFile());
-        AudioInputStream formattedInput = AudioSystem.getAudioInputStream(new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, SoundManager.SAMPLE_RATE, 16, 1, 2, SoundManager.SAMPLE_RATE, false), input);
+        AudioInputStream formattedInput = AudioSystem.getAudioInputStream(new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, 48000F, 16, 1, 2, 48000F, false), input);
         return SoundPlugin.voicechatApi.getAudioConverter().bytesToShorts(formattedInput.readAllBytes());
     }
 

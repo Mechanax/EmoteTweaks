@@ -12,9 +12,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import dev.bsmp.emotetweaks.emotetweaks.EmoteTweaks;
-import dev.kosmx.playerAnim.core.util.Pair;
 import io.github.kosmx.emotes.common.SerializableConfig;
-import io.github.kosmx.emotes.executor.dataTypes.InputKey;
 import io.github.kosmx.emotes.main.config.ClientConfig;
 import io.github.kosmx.emotes.main.config.ClientConfigSerializer;
 

@@ -25,10 +25,12 @@
     "EmoteTweaks.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.15.0",
-    "fabric": "*",
-    "minecraft": "1.20.1",
-    "emotecraft": "2.2.7-b.build.50",
-    "voicechat": ">=1.20.1-2.4.32"
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_dependency}",
+    "emotecraft": "${emotecraft}",
+    "voicechat": ">=${minecraft_version}-${voicechat_api_version}"
+  },
+  "breaks": {
+    "fabric": "<${fabric_version}"
   }
 }

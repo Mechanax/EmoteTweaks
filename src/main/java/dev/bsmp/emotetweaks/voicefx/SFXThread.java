@@ -8,14 +8,11 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.UUID;
 
-import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 import de.maxhenkel.voicechat.Voicechat;
 import de.maxhenkel.voicechat.api.opus.OpusEncoder;
-import de.maxhenkel.voicechat.plugins.PluginManager;
 import de.maxhenkel.voicechat.voice.client.ClientManager;
-import de.maxhenkel.voicechat.voice.client.ClientVoicechat;
 import de.maxhenkel.voicechat.voice.common.LocationSoundPacket;
 
 public class SFXThread extends Thread {
@@ -53,7 +50,7 @@ public class SFXThread extends Thread {
             ClientPlayNetworking.send(SFXPacket.PACKET_ID, buf);
 
             short[] finalFrame = frame;
-            Minecraft.getInstance().executeIfPossible(() -> ClientManager.getClient().processSoundPacket(new LocationSoundPacket(uuid, finalFrame, Minecraft.getInstance().player.position(), 15f, null)));
+            Minecraft.getInstance().executeIfPossible(() -> ClientManager.getClient().processSoundPacket(new LocationSoundPacket(uuid, null, finalFrame, Minecraft.getInstance().player.position(), 15f, null)));
 
             ++framePosition;
             long waitTimestamp = startTime + (long) framePosition * 20000000L;

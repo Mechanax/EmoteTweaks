@@ -1,6 +1,5 @@
 package dev.bsmp.emotetweaks.emotetweaks;
 
-import dev.bsmp.emotetweaks.emotetweaks.mixin.NetDataAccessor;
 import dev.kosmx.playerAnim.core.data.AnimationBinary;
 import io.github.kosmx.emotes.common.network.objects.AbstractNetworkPacket;
 import io.github.kosmx.emotes.common.network.objects.NetData;
